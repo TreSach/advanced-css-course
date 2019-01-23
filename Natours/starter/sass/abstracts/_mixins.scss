@@ -5,3 +5,69 @@
         clear: both;
     }
 }
+
+@mixin absCenter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// Media Query
+
+/* Note:
+
+0-600px = Phone
+600 - 900px = Tablet portrait
+900 - 1200px = Tablet landscape
+1200 - 1800 = Normal styles applied
+1800px + = Big desktop
+
+*/
+
+/* 
+Alternative 
+
+@mixin respond-phone {
+    @media (max-width: 600px) {
+        @content
+    };
+}*/
+
+
+/* breakpoint reference
+-phone
+-tabp
+-tabl
+-desk
+
+rem failed to work for some browsers in media queries. Use ems instead
+1em = 16px
+*/
+
+
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+            @content
+        };
+    }
+
+    @if $breakpoint == tabp {
+        @media (max-width: 56.25em) {
+            @content
+        };
+    }
+
+    @if $breakpoint == tabl {
+        @media (max-width: 75em) {
+            @content
+        };
+    }
+
+    @if $breakpoint == desk {
+        @media (min-width: 112.5em) {
+            @content
+        };
+    }
+}

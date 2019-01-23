@@ -1,4 +1,5 @@
 .btn{
+  &,
     &:link,
 &:visited {
   text-transform: uppercase;
@@ -10,6 +11,10 @@
   position: relative;
   margin-top: 4%;
   font-size: 16px;
+
+  //Change for the <button> element
+  border: none;
+  cursor: pointer;
 }
   
 
